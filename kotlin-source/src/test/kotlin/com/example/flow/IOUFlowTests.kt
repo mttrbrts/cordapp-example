@@ -17,7 +17,7 @@ class IOUFlowTests {
     lateinit var network: MockNetwork
     lateinit var a: StartedMockNode
     lateinit var b: StartedMockNode
-
+    
     @Before
     fun setup() {
         network = MockNetwork(listOf("com.example.contract"))

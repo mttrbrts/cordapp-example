@@ -38,6 +38,12 @@ configurations {
     integrationTestRuntime.extendsFrom testRuntime
 }
 
+test {
+    testLogging {
+        showStandardStreams = true
+    }
+}
+
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
     testCompile "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
