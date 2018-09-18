@@ -931,7 +931,7 @@ function () {
         var vcontract_0 = vcontract;
         var vstate_0 = vlstate_0;
         var vemit_0 = vlemit_0;
-        var vtx = vX$main;
+        var vrequest_0 = vX$main;
         var vlstate = vstate;
         var vlemit = vemit;
         var t3;
@@ -943,11 +943,10 @@ function () {
             })
           };
         } else {
+          var vp1 = deref(unbrand(vrequest), "value");
           var t2;
 
-          if (!!(compare(deref(unbrand(vtx), "value"), {
-            "nat": 0.0
-          }) <= 0)) {
+          if (!(floatOfNat(vp1) > 0.0)) {
             t2 = {
               "right": brand(["org.accordproject.ergo.stdlib.ErgoErrorResponse"], {
                 "message": "The IOU's value must be non-negative."
@@ -1007,7 +1006,7 @@ function () {
   }, {
     key: "verify",
     value: function verify(context) {
-      var vtx = deref(context, "tx");
+      var vrequest = deref(context, "request");
       var vcontract = deref(context, "contract");
       var vemit = deref(context, "emit");
       var vstate = deref(context, "state");
@@ -1022,11 +1021,10 @@ function () {
           })
         };
       } else {
+        var vp1 = deref(unbrand(vrequest), "value");
         var t1;
 
-        if (!!(compare(deref(unbrand(vtx), "value"), {
-          "nat": 0.0
-        }) <= 0)) {
+        if (!(floatOfNat(vp1) > 0.0)) {
           t1 = {
             "right": brand(["org.accordproject.ergo.stdlib.ErgoErrorResponse"], {
               "message": "The IOU's value must be non-negative."
