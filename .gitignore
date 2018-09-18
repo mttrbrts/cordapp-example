@@ -78,3 +78,7 @@ crashlytics-build.properties
 
 # docs related
 docs/virtualenv/
+
+# npm
+**/node_modules/*
+**/.nyc_output/*

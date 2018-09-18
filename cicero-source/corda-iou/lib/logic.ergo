@@ -17,12 +17,12 @@ namespace org.accordproject.sample.corda.iou
 import org.accordproject.cicero.runtime.*
 
 contract IOUContract over IOUContractModel {
-  clause verify(tx : IOURequest) : Response {
+  clause verify(request : IOURequest) : Response {
     // IOU-sepcific contraints
-    enforce contract.lender != contract.borrower
-      else throw ErgoErrorResponse{ message: "The lender and the borrower cannot be the same entity." };
-    enforce tx.value >i 0
-      else throw ErgoErrorResponse{ message: "The IOU's value must be non-negative." };
+    enforce contract.lender != contract.borrower else
+      throw ErgoErrorResponse{ message: "The lender and the borrower cannot be the same entity." };
+    enforce integerToDouble(request.value) > 0.0 else
+      throw ErgoErrorResponse{ message: "The IOU's value must be non-negative." };
 
     return Response{}
   }
